@@ -1,4 +1,4 @@
 package br.com.restassuredapitesting.suites;
 
-public interface ContractTests {
+public interface HealthcheckTest {
 }

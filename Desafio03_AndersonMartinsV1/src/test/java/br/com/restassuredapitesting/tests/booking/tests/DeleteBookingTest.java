@@ -1,6 +1,7 @@
 package br.com.restassuredapitesting.tests.booking.tests;
 
 import br.com.restassuredapitesting.base.BaseTest;
+import br.com.restassuredapitesting.suites.AcceptanceCriticalTest;
 import br.com.restassuredapitesting.suites.AllTests;
 import br.com.restassuredapitesting.tests.auth.requests.PostAuthRequest;
 import br.com.restassuredapitesting.tests.booking.requests.DeleteBookingRequest;
@@ -15,7 +16,7 @@ public class DeleteBookingTest extends BaseTest {
     PostAuthRequest postAuthRequest = new PostAuthRequest();
 
     @Test
-    @Category(AllTests.class)
+    @Category({AllTests.class, AcceptanceCriticalTest.class})
     public void deleteBooking() {
 
         int idParaDeletar = getBookingRequest.bookingReturnIds()

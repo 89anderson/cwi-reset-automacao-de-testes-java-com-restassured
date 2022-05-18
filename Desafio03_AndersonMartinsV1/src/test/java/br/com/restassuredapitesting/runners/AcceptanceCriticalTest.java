@@ -7,10 +7,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 @RunWith(Categories.class)
-@Categories.IncludeCategory(br.com.restassuredapitesting.suites.SmokeTests.class)
+@Categories.IncludeCategory(br.com.restassuredapitesting.suites.AcceptanceCriticalTest.class)
 @Suite.SuiteClasses({
-        GetPingTest.class,
-        PostAuthTest.class,
+        GetPingTest.class
 })
-public class SmokeTests {
+public class AcceptanceCriticalTest {
 }

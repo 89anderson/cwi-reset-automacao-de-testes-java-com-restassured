@@ -3,7 +3,7 @@ package br.com.restassuredapitesting.tests.booking.tests;
 import br.com.restassuredapitesting.Utils.Utils;
 import br.com.restassuredapitesting.base.BaseTest;
 import br.com.restassuredapitesting.suites.AllTests;
-import br.com.restassuredapitesting.suites.ContractTests;
+import br.com.restassuredapitesting.suites.SchemaTest;
 import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -29,7 +29,7 @@ public class GetBookingTest extends BaseTest {
     }
 
     @Test
-    @Category({AllTests.class, ContractTests.class})
+    @Category({AllTests.class, SchemaTest.class})
     public void validaSchemaDaListagemDeReservas() {
         getBookingRequest.bookingReturnIds()
                 .then()

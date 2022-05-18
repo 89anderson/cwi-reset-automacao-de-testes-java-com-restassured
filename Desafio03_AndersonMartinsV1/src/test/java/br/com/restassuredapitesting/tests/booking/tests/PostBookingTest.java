@@ -2,7 +2,7 @@ package br.com.restassuredapitesting.tests.booking.tests;
 
 import br.com.restassuredapitesting.base.BaseTest;
 import br.com.restassuredapitesting.suites.AllTests;
-import br.com.restassuredapitesting.suites.SmokeTests;
+import br.com.restassuredapitesting.suites.AcceptanceCriticalTest;
 import br.com.restassuredapitesting.tests.booking.requests.PostBookingRequest;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
@@ -13,7 +13,7 @@ public class PostBookingTest extends BaseTest {
     PostBookingRequest postBookingRequest = new PostBookingRequest();
 
     @Test
-    @Category({AllTests.class, SmokeTests.class})
+    @Category({AllTests.class, AcceptanceCriticalTest.class})
     public void createNewBooking() {
 
         postBookingRequest.createBooking()
