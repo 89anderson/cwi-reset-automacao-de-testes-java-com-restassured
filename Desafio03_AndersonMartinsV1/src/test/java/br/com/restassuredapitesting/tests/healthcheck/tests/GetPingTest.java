@@ -1,8 +1,9 @@
-package br.com.restassuredapitesting.tests.ping.tests;
+package br.com.restassuredapitesting.tests.healthcheck.tests;
 
 import br.com.restassuredapitesting.base.BaseTest;
 import br.com.restassuredapitesting.suites.AllTests;
-import br.com.restassuredapitesting.tests.ping.requests.GetPingRequest;
+import br.com.restassuredapitesting.suites.HealthcheckTest;
+import br.com.restassuredapitesting.tests.healthcheck.requests.GetPingRequest;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import java.util.concurrent.TimeUnit;
@@ -13,7 +14,7 @@ public class GetPingTest extends BaseTest {
     GetPingRequest getPingRequest = new GetPingRequest();
 
     @Test
-    @Category({AllTests.class})
+    @Category({AllTests.class, HealthcheckTest.class})
     public void validaApiOnline(){
 
         getPingRequest.pingReturnApi()

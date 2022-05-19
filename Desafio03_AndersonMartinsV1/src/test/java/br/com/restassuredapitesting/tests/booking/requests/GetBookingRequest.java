@@ -12,4 +12,11 @@ public class GetBookingRequest {
                             //.log().all()
                             .get("booking");
     }
+
+    public Response retornaReservaDoId(int id) {
+        return given()
+                .header("Accept", "application/json")
+                .when()
+                .get("booking/"+id);
+    }
 }

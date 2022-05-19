@@ -9,13 +9,24 @@ public class PutBookingRequest {
 
     BookingPayloads bookingPayloads = new BookingPayloads();
 
-    public Response updateBookingToken(int id, String token) {
+    public Response updateBooking(int id, String token) {
 
 
         return given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
                 .header("Cookie", token)
+                .when()
+                .body(bookingPayloads.payloadValidBooking().toString())
+                .put("booking/"+id);
+    }
+
+    public Response updateBookingSemToken(int id) {
+
+
+        return given()
+                .header("Content-Type", "application/json")
+                .header("Accept", "application/json")
                 .when()
                 .body(bookingPayloads.payloadValidBooking().toString())
                 .put("booking/"+id);
