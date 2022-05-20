@@ -2,6 +2,7 @@ package br.com.restassuredapitesting.tests.booking.requests;
 
 import br.com.restassuredapitesting.Utils.Utils;
 import br.com.restassuredapitesting.tests.booking.payloads.BookingPayloads;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
@@ -10,6 +11,7 @@ public class PutBookingRequest {
 
     BookingPayloads bookingPayloads = new BookingPayloads();
 
+    @Step("Altera uma reserva específica utilizando validação por token")
     public Response updateBookingComToken(int id, String token) {
 
 
@@ -22,6 +24,7 @@ public class PutBookingRequest {
                 .put("booking/"+id);
     }
 
+    @Step("Altera uma reserva específica utilizando validação por Basic Auth")
     public Response updateBookingComBasicAuth(int id) {
 
 
@@ -34,6 +37,7 @@ public class PutBookingRequest {
                 .put("booking/"+id);
     }
 
+    @Step("Altera uma reserva específica sem validação")
     public Response updateBookingSemToken(int id) {
 
 

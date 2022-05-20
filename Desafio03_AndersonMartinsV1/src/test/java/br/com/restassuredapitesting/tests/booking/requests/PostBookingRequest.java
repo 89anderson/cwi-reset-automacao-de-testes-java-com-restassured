@@ -1,7 +1,7 @@
 package br.com.restassuredapitesting.tests.booking.requests;
 
-import br.com.restassuredapitesting.tests.booking.payloads.BookingPayloads;
 import br.com.restassuredapitesting.tests.booking.payloads.CreateBookingPayload;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
@@ -10,39 +10,39 @@ public class PostBookingRequest {
 
     CreateBookingPayload createBookingPayload = new CreateBookingPayload();
 
+    @Step("Cria uma reserva")
     public Response createBooking() {
 
         return given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
                 .when()
-                .log().all()
-                .body(createBookingPayload.payloadToCreateBooking().toString())
-                .post("booking");
+                    .body(CreateBookingPayload.payloadToCreateBooking().toString())
+                        .post("booking");
 
     }
 
-    public Response buscaPayloadInvalido() {
+    @Step("Cria uma reserva utilizando um payload invalido")
+    public Response criaReservaComPayloadInvalido() {
 
         return given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
                 .when()
-                .log().all()
-                .body(createBookingPayload.payloadInvalidoParaCriarReserva().toString())
-                .post("booking");
+                    .body(CreateBookingPayload.payloadInvalidoParaCriarReserva().toString())
+                        .post("booking");
 
     }
 
-    public Response buscaPayloadComParametrosExtra() {
+    @Step("Cria uma reserva utilizando um payload com parametros extras")
+    public Response criaReservaComPayloadDeParametrosExtras() {
 
         return given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
                 .when()
-                .log().all()
-                .body(createBookingPayload.payloadParaCriarReservaComParametroExtra().toString())
-                .post("booking");
+                    .body(CreateBookingPayload.payloadParaCriarReservaComParametroExtra().toString())
+                        .post("booking");
 
     }
 
