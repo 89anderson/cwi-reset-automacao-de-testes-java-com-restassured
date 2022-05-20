@@ -22,4 +22,28 @@ public class PostBookingRequest {
 
     }
 
+    public Response buscaPayloadInvalido() {
+
+        return given()
+                .header("Content-Type", "application/json")
+                .header("Accept", "application/json")
+                .when()
+                .log().all()
+                .body(createBookingPayload.payloadInvalidoParaCriarReserva().toString())
+                .post("booking");
+
+    }
+
+    public Response buscaPayloadComParametrosExtra() {
+
+        return given()
+                .header("Content-Type", "application/json")
+                .header("Accept", "application/json")
+                .when()
+                .log().all()
+                .body(createBookingPayload.payloadParaCriarReservaComParametroExtra().toString())
+                .post("booking");
+
+    }
+
 }

@@ -1,5 +1,6 @@
 package br.com.restassuredapitesting.tests.auth.requests;
 
+import br.com.restassuredapitesting.Utils.Utils;
 import br.com.restassuredapitesting.tests.auth.requests.payloads.AuthPayloads;
 import io.restassured.response.Response;
 

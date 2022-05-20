@@ -28,7 +28,26 @@ public class PutBookingTest extends BaseTest {
                             .extract()
                                 .path("[0].bookingid");
 
-        putBookingRequest.updateBooking(primeiroId, postAuthRequest.getToken())
+        putBookingRequest.updateBookingComToken(primeiroId, postAuthRequest.getToken())
+                .then()
+                    .assertThat()
+                        .statusCode(200)
+                    .body("size()", greaterThan(0));
+
+    }
+
+    @Test
+    @Category({AllTests.class, AcceptanceCriticalTest.class})
+    public void alteraReservaUtilizandoBasicAuth() {
+
+        int primeiroId = getBookingRequest.bookingReturnIds()
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .extract()
+                .path("[0].bookingid");
+
+        putBookingRequest.updateBookingComBasicAuth(primeiroId)
                 .then()
                     .assertThat()
                         .statusCode(200)
@@ -66,7 +85,7 @@ public class PutBookingTest extends BaseTest {
                 .extract()
                 .path("[0].bookingid");
 
-        putBookingRequest.updateBooking(primeiroId, token)
+        putBookingRequest.updateBookingComToken(primeiroId, token)
                 .then()
                     .assertThat()
                         .statusCode(403);
@@ -78,7 +97,7 @@ public class PutBookingTest extends BaseTest {
 
         int primeiroId = 9999;
 
-        putBookingRequest.updateBooking(primeiroId, postAuthRequest.getToken())
+        putBookingRequest.updateBookingComToken(primeiroId, postAuthRequest.getToken())
                 .then()
                 .assertThat()
                 .statusCode(405);
