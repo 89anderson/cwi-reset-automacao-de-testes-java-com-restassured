@@ -11,7 +11,6 @@ public class GetBookingRequest {
     public Response bookingReturnIds() {
         return given()
                             .when()
-                            //.log().all()
                             .get("booking");
     }
 
@@ -20,6 +19,23 @@ public class GetBookingRequest {
         return given()
                 .header("Accept", "application/json")
                 .when()
-                .get("booking/"+id);
+                    .get("booking/"+id);
+    }
+
+    @Step("Retorna Id das reservas quando se utiliza parâmetro para criar um filtro")
+    public Response getReturnIdFilters(String key, String value,String keyTwo, String valueTwo, String checkIn, String dateOne, String checkOut, String dateTwo) {
+        return given()
+                .queryParams(key, value, keyTwo, valueTwo, checkIn, dateOne, checkOut, dateTwo)
+                .when()
+                    .get("booking");
+    }
+
+    @Step("Visualizar erro de filtro mal formatado")
+    public Response getReturnIdWithBadFilter(String key, String value,String keyTwo, String valueTwo) {
+        return given()
+                .queryParams(key, value)
+                .queryParam(keyTwo, valueTwo)
+                .when()
+                .get("booking");
     }
 }

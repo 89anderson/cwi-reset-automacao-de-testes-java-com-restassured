@@ -22,6 +22,18 @@ public class PostBookingRequest {
 
     }
 
+    @Step("Cria uma reserva com parâmetros fixos")
+    public Response createEspecificBooking() {
+
+        return given()
+                .header("Content-Type", "application/json")
+                .header("Accept", "application/json")
+                .when()
+                    .body(CreateBookingPayload.payloadToCreateSpecificBooking().toString())
+                        .post("booking");
+
+    }
+
     @Step("Cria uma reserva utilizando um payload invalido")
     public Response criaReservaComPayloadInvalido() {
 

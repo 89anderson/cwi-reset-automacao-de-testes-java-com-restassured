@@ -22,6 +22,25 @@ public class CreateBookingPayload {
         return payload;
     }
 
+
+    public static JSONObject payloadToCreateSpecificBooking() {
+        JSONObject payload = new JSONObject();
+        JSONObject bookingDates = new JSONObject();
+
+        bookingDates.put("checkin", "2017-12-31");
+        bookingDates.put("checkout", "2019-01-01");
+
+        payload.put("firstname", "Nome");
+        payload.put("lastname", "Sobrenome");
+        payload.put("totalprice", "250");
+        payload.put("depositpaid", false);
+        payload.put("bookingdates", bookingDates);
+        payload.put("additionalneeds", "2 toalhas brancas");
+
+        return payload;
+    }
+
+
     public static JSONObject payloadInvalidoParaCriarReserva (){
         JSONObject payload = new JSONObject();
         JSONObject bookingDates = new JSONObject();
