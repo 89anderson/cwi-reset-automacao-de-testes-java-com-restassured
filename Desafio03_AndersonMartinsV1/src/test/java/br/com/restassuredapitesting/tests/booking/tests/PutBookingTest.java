@@ -7,6 +7,7 @@ import br.com.restassuredapitesting.suites.SecurityTest;
 import br.com.restassuredapitesting.tests.auth.requests.PostAuthRequest;
 import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
 import br.com.restassuredapitesting.tests.booking.requests.PutBookingRequest;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
@@ -15,6 +16,7 @@ import org.junit.experimental.categories.Category;
 
 import static org.hamcrest.Matchers.greaterThan;
 
+@Feature("Feature de alteração de reservas")
 public class PutBookingTest extends BaseTest {
     PutBookingRequest putBookingRequest = new PutBookingRequest();
     GetBookingRequest getBookingRequest = new GetBookingRequest();

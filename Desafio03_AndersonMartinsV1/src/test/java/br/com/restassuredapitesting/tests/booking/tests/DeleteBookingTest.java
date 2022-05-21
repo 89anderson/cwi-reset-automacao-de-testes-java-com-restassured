@@ -8,12 +8,14 @@ import br.com.restassuredapitesting.suites.SecurityTest;
 import br.com.restassuredapitesting.tests.auth.requests.PostAuthRequest;
 import br.com.restassuredapitesting.tests.booking.requests.DeleteBookingRequest;
 import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
+@Feature("Feature de excluir reservas")
 public class DeleteBookingTest extends BaseTest {
 
     DeleteBookingRequest deleteBookingRequest = new DeleteBookingRequest();

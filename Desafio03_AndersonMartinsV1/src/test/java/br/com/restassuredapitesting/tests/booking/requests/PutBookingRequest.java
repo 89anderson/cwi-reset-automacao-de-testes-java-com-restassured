@@ -1,10 +1,9 @@
 package br.com.restassuredapitesting.tests.booking.requests;
 
-import br.com.restassuredapitesting.Utils.Utils;
+import br.com.restassuredapitesting.tests.auth.payloads.AuthPayloads;
 import br.com.restassuredapitesting.tests.booking.payloads.BookingPayloads;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
-
 import static io.restassured.RestAssured.given;
 
 public class PutBookingRequest {
@@ -31,7 +30,7 @@ public class PutBookingRequest {
         return given()
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
-                .auth().preemptive().basic(Utils.USERNAME, Utils.PASSWORD)
+                .auth().preemptive().basic(AuthPayloads.USERNAME, AuthPayloads.PASSWORD)
                 .when()
                 .body(bookingPayloads.payloadValidBooking().toString())
                 .put("booking/"+id);

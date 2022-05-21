@@ -6,6 +6,7 @@ import br.com.restassuredapitesting.suites.AcceptanceCriticalTest;
 import br.com.restassuredapitesting.suites.AllTests;
 import br.com.restassuredapitesting.suites.SchemaTest;
 import br.com.restassuredapitesting.tests.booking.requests.GetBookingRequest;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
@@ -15,6 +16,7 @@ import java.io.File;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static org.hamcrest.Matchers.greaterThan;
 
+@Feature("Feature de retorno de reservas")
 public class GetBookingTest extends BaseTest {
 
     GetBookingRequest getBookingRequest = new GetBookingRequest();

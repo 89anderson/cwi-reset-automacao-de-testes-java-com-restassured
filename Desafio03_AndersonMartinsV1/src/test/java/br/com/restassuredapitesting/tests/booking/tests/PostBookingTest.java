@@ -7,6 +7,7 @@ import br.com.restassuredapitesting.suites.AllTests;
 import br.com.restassuredapitesting.suites.AcceptanceCriticalTest;
 import br.com.restassuredapitesting.suites.SchemaTest;
 import br.com.restassuredapitesting.tests.booking.requests.PostBookingRequest;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
@@ -18,6 +19,7 @@ import java.io.File;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
 import static org.hamcrest.Matchers.notNullValue;
 
+@Feature("Feature de criação de reservas")
 public class PostBookingTest extends BaseTest {
 
     PostBookingRequest postBookingRequest = new PostBookingRequest();
